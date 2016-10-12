@@ -1,0 +1,13 @@
+#content {
+    margin: 3em auto;
+    width: 90%;
+}
+
+#login, #register {
+    margin: 3em auto;
+    width: 360px;
+}
+
+#login h2 {
+    text-align: center;
+}
