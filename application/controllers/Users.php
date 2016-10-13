@@ -9,9 +9,9 @@ class Users extends CI_Controller {
         $this->load->model('Model_users');
     }
 
-    public function list() {
+    public function listing() {
         $data['content'] = 'users/list';
-        $data['title'] = 'User list';
+        $data['title'] = 'User listing';
         $data['users'] = $this->Model_users->get_all();
         $data['message'] = '';
         $this->load->view('admin_layout', $data);

@@ -32,7 +32,7 @@ class Auth extends CI_Controller {
             $this->login();
         }
         else {
-            redirect('users/list');
+            redirect('users/listing');
         }
     }
 
@@ -73,7 +73,7 @@ class Auth extends CI_Controller {
             $session_data = array('user_firstname' => $user['firstname'], 'user_email' => $user['email']);
             $this->session->set_userdata($session_data);
 
-            $data['content'] = 'users/list';
+            $data['content'] = 'users/listing';
             $data['title'] = 'Login';
             $data['users'] = $this->Model_users->get_all();
             $data['message'] = '';
