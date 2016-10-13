@@ -11,10 +11,10 @@ class Users extends CI_Controller {
 
     public function list() {
         $data['content'] = 'users/list';
-        $data['title'] = 'Login';
+        $data['title'] = 'User list';
         $data['users'] = $this->Model_users->get_all();
         $data['message'] = '';
-        $this->load->view('layout', $data);
+        $this->load->view('admin_layout', $data);
     }
 
 }

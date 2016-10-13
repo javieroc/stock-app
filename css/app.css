@@ -1,3 +1,7 @@
+#main-content {
+    height: 100%;
+}
+
 #content {
     margin: 3em auto;
     width: 90%;
@@ -8,6 +12,36 @@
     width: 360px;
 }
 
-#login h2 {
+#login h2, #register h2 {
     text-align: center;
+}
+
+#left-side {
+    background-color: #2F323A;
+    color: #FFF;
+    height: 100%;
+}
+
+#left-side-bar ul{
+    list-style: none;
+    margin: 0;
+}
+
+#left-side-bar ul li a {
+    color: #FFF;
+    display: block;
+    padding: 1em;
+}
+
+#left-side-bar ul li a:hover {
+    background-color: #111;
+}
+
+#title-app {
+    background-color: #111;
+    padding: 0.6rem .5em;
+}
+
+.remove-padding {
+    padding: 0;
 }

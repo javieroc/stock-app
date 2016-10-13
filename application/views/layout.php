@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title><?= $title; ?></title>
     <link href="<?= base_url('css/foundation.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('css/foundation-icons/foundation-icons.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('css/app.css'); ?>" rel="stylesheet" />
 </head>
 <body>
