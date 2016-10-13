@@ -10,7 +10,7 @@ class Users extends CI_Controller {
     }
 
     public function listing() {
-        $data['content'] = 'users/list';
+        $data['content'] = 'users/listing';
         $data['title'] = 'User listing';
         $data['users'] = $this->Model_users->get_all();
         $data['message'] = '';

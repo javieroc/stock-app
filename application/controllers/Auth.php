@@ -77,7 +77,7 @@ class Auth extends CI_Controller {
             $data['title'] = 'Login';
             $data['users'] = $this->Model_users->get_all();
             $data['message'] = '';
-            $this->load->view('layout', $data);
+            $this->load->view('admin_layout', $data);
         }
     }
 
