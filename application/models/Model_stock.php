@@ -8,8 +8,8 @@ class Model_stock extends CI_Model {
     }
 
     function get_all(){
-        $this->db->from('items');
-        $this->db->join('stock', 'items.id = stock.item_id', 'left');
+        $this->db->from('stock');
+        $this->db->join('items', 'items.id = stock.item_id', 'left');
         $this->db->order_by('name', 'asc');
         $query = $this->db->get();
         return $query->result();
