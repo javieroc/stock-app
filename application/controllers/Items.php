@@ -7,10 +7,42 @@ class Items extends CI_Controller {
         parent::__construct();
 
         $this->load->model('Model_items');
+        //$this->load->model('Model_sizes');
     }
 
-    public function listing() {
-
+    public function index() {
+        $data['content'] = 'items/index';
+        $data['title'] = 'Items';
+        $data['items'] = $this->Model_items->get_all();
+        $this->load->view('admin_layout', $data);
     }
 
+    public function add () {
+        $data['content'] = 'items/add';
+        $data['title'] = 'Add Item';
+        $data['sizes'] = ['1' => 'uno', '2' => 'dos', '3' => 'tres', '4' => 'cuatro'];
+        $this->load->view('admin_layout', $data);
+    }
+
+    public function validate () {
+        $item = $this->input->post();
+
+        $this->form_validation->set_rules('name', 'Name', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->add();
+        }
+        else {
+            $sizes = $item['sizes'];
+            unset($item['sizes']);
+
+            $item['created'] = date('Y/m/d H:i:s');
+            $item['updated'] = date('Y/m/d H:i:s');
+            $item_id = $this->Model_items->insert($item);
+
+            $this->Model_items->insert_item_size($item_id, $sizes);
+
+            redirect('items/index');
+        }
+    }
 }

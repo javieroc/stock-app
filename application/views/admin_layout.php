@@ -5,7 +5,14 @@
     <title><?= $title; ?></title>
     <link href="<?= base_url('css/foundation.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('css/foundation-icons/foundation-icons.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('css/multi-select.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('css/app.css'); ?>" rel="stylesheet" />
+
+    <script src="<?= base_url('js/vendor/jquery.js'); ?>"></script>
+    <script src="<?= base_url('js/vendor/what-input.js'); ?>"></script>
+    <script src="<?= base_url('js/vendor/foundation.js'); ?>"></script>
+    <script src="<?= base_url('js/jquery.multi-select.js'); ?>"></script>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
 </head>
 <body>
     <div id="main-content">
@@ -36,10 +43,5 @@
             </div>
         </div>
     </div>
-
-    <script src="<?= base_url('js/vendor/jquery.js'); ?>"></script>
-    <script src="<?= base_url('js/vendor/what-input.js'); ?>"></script>
-    <script src="<?= base_url('js/vendor/foundation.js'); ?>"></script>
-    <script src="<?= base_url('js/app.js'); ?>"></script>
 </body>
 </html>

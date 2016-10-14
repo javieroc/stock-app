@@ -23,4 +23,23 @@ class Model_items extends CI_Model {
         return $items_array;
     }
 
+    function insert($item) {
+        $this->db->trans_start();
+        $this->db->set($item);
+        $this->db->insert('items');
+        $id = $this->db->insert_id();
+        $this->db->trans_complete();
+        return $id;
+    }
+
+    function insert_item_size($item_id, $sizes) {
+        $row = array();
+        foreach ($sizes as $size_id => $size) {
+            $row['item_id'] = $item_id;
+            $row['size_id'] = $size_id;
+            $this->db->set($row);
+            $this->db->insert('item_x_size');
+        }
+    }
+
 }
