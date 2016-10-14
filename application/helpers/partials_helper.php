@@ -46,7 +46,8 @@ if (!function_exists('top_bar_right_items')) {
 if (!function_exists('left_side_bar_items')) {
     function left_side_bar_items() {
         $markup = '';
-        $markup = $markup . '<li>' . anchor('auth/register', 'Usuarios') . '</li>';
+        $markup = $markup . '<li>' . anchor('users/listing', 'Usuarios') . '</li>';
+        $markup = $markup . '<li>' . anchor('stock/index', 'Stock') . '</li>';
         $markup = $markup . '<li>' . anchor('auth/register', 'Artículos') . '</li>';
         $markup = $markup . '<li>' . anchor('auth/login', 'Talles disponibles') . '</li>';
         $markup = $markup . '<li>' . anchor('auth/login', 'Colores disponibles') . '</li>';
