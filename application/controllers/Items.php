@@ -7,7 +7,7 @@ class Items extends CI_Controller {
         parent::__construct();
 
         $this->load->model('Model_items');
-        //$this->load->model('Model_sizes');
+        $this->load->model('Model_sizes');
     }
 
     public function index() {
@@ -20,7 +20,7 @@ class Items extends CI_Controller {
     public function add () {
         $data['content'] = 'items/add';
         $data['title'] = 'Add Item';
-        $data['sizes'] = ['1' => 'uno', '2' => 'dos', '3' => 'tres', '4' => 'cuatro'];
+        $data['sizes'] = $this->Model_sizes->get_all_array();
         $this->load->view('admin_layout', $data);
     }
 

@@ -13,9 +13,10 @@ $(document).ready(function() {
         if(item){
             $.ajax({
                 type: "post",
-                url: base_url + "/stock/ajax/" + item,
+                url: baseUrl + "/stock/ajax/" + item,
                 cache: false,
                 success: function(response){
+                    alert(response);
                     $('#result').html("");
                     var obj = JSON.parse(response);
                     if(obj.length > 0){

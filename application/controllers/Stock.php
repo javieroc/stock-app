@@ -32,7 +32,7 @@ class Stock extends CI_Controller {
 
     public function ajax($item_id) {
         if($this->input->is_ajax_request()){
-            $query = $this->Model_item->get_item_sizes($item_id);
+            $query = $this->Model_items->get_item_sizes($item_id);
             echo json_encode($query);
         }else{
             show_404();

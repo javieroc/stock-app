@@ -2,12 +2,11 @@
 
 class Model_stock extends CI_Model {
 
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
     }
 
-    function get_all(){
+    function get_all() {
         $this->db->from('stock');
         $this->db->join('items', 'items.id = stock.item_id', 'left');
         $this->db->order_by('name', 'asc');
