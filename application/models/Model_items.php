@@ -42,4 +42,13 @@ class Model_items extends CI_Model {
         }
     }
 
+    function get_item_sizes($item_id) {
+        $this->db->from('item_x_size');
+        $this->db->join('items', 'items.id = item_x_size.item_id', 'left');
+        $this->db->join('sizes', 'sizes.id = item_x_size.size_id', 'left');
+        $this->db->order_by('size', 'asc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }
