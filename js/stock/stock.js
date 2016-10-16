@@ -7,8 +7,8 @@ $(document).ready(function() {
     host = pathArray[2];
     baseUrl = protocol + '//' + host;
 
-    $('#item').on('change', function() {
-        var item = $(this).val();
+    var ajaxCall = function() {
+        var item = $('#item').val();
 
         if(item){
             $.ajax({
@@ -16,18 +16,17 @@ $(document).ready(function() {
                 url: baseUrl + "/stock/ajax/" + item,
                 cache: false,
                 success: function(response){
-                    alert(response);
                     $('#result').html("");
+                    var markup = '';
                     var obj = JSON.parse(response);
                     if(obj.length > 0){
-                        /*
                         var items = [];
                         $.each(obj, function(i,val){
-                            cadena = '<tr>'+'<td>'+ val.id +'</td>'+'<td>'+ val.nombre +'</td>'+'<td>'+ val.created +'</td>'+'<td>'+ val.updated +'</td>';
-                            cadena = cadena + '<td><a class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="' + '#myModal' + val.id + '"></a></td>'+'</tr>';
-                            items.push(cadena);
+                            markup = '<tr>'+'<td>'+ val.name +'</td>'+'<td>'+ val.season +'</td>'+'<td>'+ val.year +'</td>'+'<td>'+ val.size +'</td>';
+                            markup = markup + '<td><input class="quantity" type="number" name="quantity[' + val.size + ']"></td>'+'</tr>';
+                            items.push(markup);
                         }); 
-                        $('#destinoResultado').append.apply($('#destinoResultado'), items);*/
+                        $('#result').append.apply($('#result'), items);
                     }else{
                         $('#result').html($('<tr/>').text('No rows found'));
                     }
@@ -37,8 +36,15 @@ $(document).ready(function() {
                 }
             });
         }
-    });
+    }
 
+    ajaxCall();
+
+    $('#item').on('change', ajaxCall);
+
+    $('#default_quantity').on('change', function() {
+        $('.quantity').val($(this).val());
+    });
 });
 
 })(jQuery);

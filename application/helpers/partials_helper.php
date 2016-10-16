@@ -35,7 +35,8 @@ if (!function_exists('top_bar_right_items')) {
         $markup = '';
         if (get_instance()->session->userdata('user_email')) {
             $markup = $markup . '<li>' . anchor('auth/logout', 'Log out') . '</li>';
-        }else{
+        }
+        else {
             $markup = $markup . '<li>' . anchor('auth/login', 'Log in') . '</li>';
             $markup = $markup . '<li>' . anchor('auth/register', 'Sing up') . '</li>';
         }
@@ -50,7 +51,6 @@ if (!function_exists('left_side_bar_items')) {
         $markup = $markup . '<li>' . anchor('stock/index', 'Stock') . '</li>';
         $markup = $markup . '<li>' . anchor('items/index', 'Artículos') . '</li>';
         $markup = $markup . '<li>' . anchor('sizes/index', 'Talles') . '</li>';
-        $markup = $markup . '<li>' . anchor('auth/login', 'Colores disponibles') . '</li>';
         return $markup;
     }
 }

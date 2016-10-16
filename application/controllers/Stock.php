@@ -27,7 +27,15 @@ class Stock extends CI_Controller {
 
     public function validate() {
         $stock_data = $this->input->post();
-        var_dump($stock_data);
+
+        $this->form_validation->set_rules('item_id', 'Item', 'required|callback_validate_colors|callback_validate_sizes');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->add();
+        }
+        else {
+            var_dump($stock_data);
+        }
     }
 
     public function ajax($item_id) {
@@ -37,6 +45,25 @@ class Stock extends CI_Controller {
         }else{
             show_404();
         }
+    }
+
+    public function validate_colors() {
+        $colors = $this->input->post('colors');
+        if (empty($colors)) {
+            return FALSE;
+        }
+        return TRUE;
+    }
+
+    public function validate_sizes() {
+        $quantity = $this->input->post('quantity');
+        $result = TRUE;
+        foreach ($quantity as $size => $value) {
+            if (empty($value)) {
+                $result = FALSE;
+            }
+        }
+        return $result;
     }
 
 }

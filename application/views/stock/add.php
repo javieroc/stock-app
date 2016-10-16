@@ -1,6 +1,6 @@
 <?= errors_messages(validation_errors()); ?>
 <div id="add-item">
-    <h2>Agrega un Stock</h2>
+    <h2>Agrega Stock</h2>
     <?= form_open('stock/validate'); ?>
         <div class="row callout">
             <div class="medium-12 columns">
@@ -15,11 +15,32 @@
 
             <div class="medium-12 columns">
                 <label>Colores
-                <select name="item_id" multiple>
+                <select name="colors[]" multiple>
                     <?php foreach ($colors as $key => $color): ?>
                     <option value="<?= $key; ?>"><?= $color; ?></option>
                     <?php endforeach; ?>
                 </select>
+                </label>
+            </div>
+
+            <div class="medium-12 columns">
+                <table class="hover stack">
+                    <thead>
+                        <tr>
+                            <th> Artículo </th>
+                            <th> Temporada </th>
+                            <th> Año </th>
+                            <th> Talle </th>
+                            <th> Cantidad </th>
+                    </thead>
+                    <tbody id="result">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="medium-12 columns">
+                <label>Cantidad por defecto
+                    <input type="number" placeholder="Cantidad de stock" id="default_quantity">
                 </label>
             </div>
 
