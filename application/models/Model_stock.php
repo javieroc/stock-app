@@ -14,4 +14,8 @@ class Model_stock extends CI_Model {
         return $query->result();
     }
 
+    function insert() {
+        
+    }
+
 }

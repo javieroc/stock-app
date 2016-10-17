@@ -34,7 +34,9 @@ class Stock extends CI_Controller {
             $this->add();
         }
         else {
-            var_dump($stock_data);
+            $this->Model_stock->insert($stock_data);
+
+            redirect('stock/index');
         }
     }
 
