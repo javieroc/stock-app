@@ -23,7 +23,7 @@ $(document).ready(function() {
                         var items = [];
                         $.each(obj, function(i,val){
                             markup = '<tr>'+'<td>'+ val.name +'</td>'+'<td>'+ val.season +'</td>'+'<td>'+ val.year +'</td>'+'<td>'+ val.size +'</td>';
-                            markup = markup + '<td><input class="quantity" type="number" name="quantity[' + val.size + ']"></td>'+'</tr>';
+                            markup = markup + '<td><input class="quantity" type="number" name="quantities[' + val.size_id + ']"></td>'+'</tr>';
                             items.push(markup);
                         }); 
                         $('#result').append.apply($('#result'), items);

@@ -3,7 +3,7 @@
     <h2>Agrega Stock</h2>
     <?= form_open('stock/validate'); ?>
         <div class="row callout">
-            <div class="medium-12 columns">
+            <div class="medium-6 columns">
                 <label>Artículo
                 <select id="item" name="item_id">
                     <?php foreach ($items as $key => $item): ?>
@@ -13,7 +13,7 @@
                 </label>
             </div>
 
-            <div class="medium-12 columns">
+            <div class="medium-6 columns">
                 <label>Colores
                 <select name="colors[]" multiple>
                     <?php foreach ($colors as $key => $color): ?>
@@ -24,7 +24,13 @@
             </div>
 
             <div class="medium-12 columns">
-                <table class="hover stack">
+                <label>Cantidad por defecto
+                    <input type="number" placeholder="Cantidad de stock" id="default_quantity">
+                </label>
+            </div>
+
+            <div class="medium-12 columns my-table-scroll">
+                <table class="hover">
                     <thead>
                         <tr>
                             <th> Artículo </th>
@@ -36,12 +42,6 @@
                     <tbody id="result">
                     </tbody>
                 </table>
-            </div>
-
-            <div class="medium-12 columns">
-                <label>Cantidad por defecto
-                    <input type="number" placeholder="Cantidad de stock" id="default_quantity">
-                </label>
             </div>
 
             <div class="medium-12 columns">

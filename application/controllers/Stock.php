@@ -34,7 +34,8 @@ class Stock extends CI_Controller {
             $this->add();
         }
         else {
-            $this->Model_stock->insert($stock_data);
+            //var_dump($stock_data);
+            $this->Model_stock->insert_batch($stock_data);
 
             redirect('stock/index');
         }
@@ -58,9 +59,9 @@ class Stock extends CI_Controller {
     }
 
     public function validate_sizes() {
-        $quantity = $this->input->post('quantity');
+        $quantities = $this->input->post('quantities');
         $result = TRUE;
-        foreach ($quantity as $size => $value) {
+        foreach ($quantities as $size => $value) {
             if (empty($value)) {
                 $result = FALSE;
             }

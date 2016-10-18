@@ -52,6 +52,7 @@ if (!function_exists('left_side_bar_items')) {
         $markup = $markup . '<li>' . anchor('items/index', 'Artículos') . '</li>';
         $markup = $markup . '<li>' . anchor('sizes/groups', 'Curvas de Talles') . '</li>';
         $markup = $markup . '<li>' . anchor('sizes/index', 'Talles') . '</li>';
+        $markup = $markup . '<li>' . anchor('colors/index', 'Colores') . '</li>';
         return $markup;
     }
 }

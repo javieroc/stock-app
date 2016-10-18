@@ -20,7 +20,7 @@ class Items extends CI_Controller {
     public function add () {
         $data['content'] = 'items/add';
         $data['title'] = 'Add Item';
-        $data['sizes'] = $this->Model_sizes->get_all_array();
+        $data['groups'] = $this->Model_sizes->get_all_groups_array();
         $this->load->view('admin_layout', $data);
     }
 
@@ -33,14 +33,9 @@ class Items extends CI_Controller {
             $this->add();
         }
         else {
-            $sizes = $item['sizes'];
-            unset($item['sizes']);
-
             $item['created'] = date('Y/m/d H:i:s');
             $item['updated'] = date('Y/m/d H:i:s');
             $item_id = $this->Model_items->insert($item);
-
-            $this->Model_items->insert_item_size($item_id, $sizes);
 
             redirect('items/index');
         }

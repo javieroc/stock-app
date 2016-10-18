@@ -40,9 +40,9 @@
             </div>
             <div class="medium-12 columns">
                 <label>Curva de talle
-                <select name="sizes[]" multiple>
-                    <?php foreach ($sizes as $key => $size): ?>
-                    <option value="<?= $key; ?>"><?= $size; ?></option>
+                <select name="group_id">
+                    <?php foreach ($groups as $group_id => $group): ?>
+                    <option value="<?= $group_id; ?>"><?= $group; ?></option>
                     <?php endforeach; ?>
                 </select>
                 </label>

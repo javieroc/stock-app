@@ -42,10 +42,11 @@ class Model_items extends CI_Model {
     }
 
     function get_item_sizes($item_id) {
-        $this->db->select('items.name, items.season, items.year, sizes.size');
+        $this->db->select('items.name, items.season, items.year, sizes.size, sizes.id as size_id');
         $this->db->from('items');
-        $this->db->join('item_x_size', 'items.id = item_x_size.item_id', 'left');
-        $this->db->join('sizes', 'sizes.id = item_x_size.size_id', 'left');
+        $this->db->join('groups', 'items.group_id = groups.id', 'left');
+        $this->db->join('size_x_group', 'groups.id = size_x_group.group_id', 'left');
+        $this->db->join('sizes', 'sizes.id = size_x_group.size_id', 'left');
         $this->db->where('items.id', $item_id);
         $this->db->order_by('size', 'asc');
         $query = $this->db->get();

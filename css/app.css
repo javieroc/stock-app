@@ -45,3 +45,9 @@
 .remove-padding {
     padding: 0;
 }
+
+.my-table-scroll {
+    height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 1em;
+}
