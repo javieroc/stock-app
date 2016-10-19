@@ -16,4 +16,28 @@ class Colors extends CI_Controller {
         $this->load->view('admin_layout', $data);
     }
 
+    public function add() {
+        $data['content'] = 'colors/add';
+        $data['title'] = 'Add color';
+        $this->load->view('admin_layout', $data);
+    }
+
+    public function validate() {
+        $color = $this->input->post();
+
+        $this->form_validation->set_rules('name', 'Name', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->add();
+        }
+        else {
+            $color['created'] = date('Y/m/d H:i:s');
+            $color['updated'] = date('Y/m/d H:i:s');
+
+            $this->Model_colors->insert($color);
+
+            redirect('colors/index');
+        }
+    }
+
 }

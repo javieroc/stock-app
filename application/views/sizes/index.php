@@ -5,6 +5,8 @@
     <thead>
         <tr>
             <th> Talle </th>
+            <th> Creado </th>
+            <th> Actualizado </th>
         </tr>
     </thead>
     <tbody>
