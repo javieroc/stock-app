@@ -51,3 +51,9 @@
     overflow-y: scroll;
     margin-bottom: 1em;
 }
+
+.table-scroll-index {
+    height: 600px;
+    overflow-y: scroll;
+    margin-bottom: 1em;
+}
