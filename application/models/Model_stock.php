@@ -7,9 +7,12 @@ class Model_stock extends CI_Model {
     }
 
     function get_all() {
+        $this->db->select('items.name as item, season, year, colors.name as color, size, quantity');
         $this->db->from('stock');
         $this->db->join('items', 'items.id = stock.item_id', 'left');
-        $this->db->order_by('name', 'asc');
+        $this->db->join('sizes', 'sizes.id = stock.size_id', 'left');
+        $this->db->join('colors', 'colors.id = stock.color_id', 'left');
+        $this->db->order_by('items.name', 'asc');
         $query = $this->db->get();
         return $query->result();
     }

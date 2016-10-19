@@ -8,6 +8,7 @@ class Stock extends CI_Controller {
 
         $this->load->model('Model_stock');
         $this->load->model('Model_items');
+        $this->load->model('Model_colors');
     }
 
     public function index() {
@@ -21,7 +22,7 @@ class Stock extends CI_Controller {
         $data['content'] = 'stock/add';
         $data['title'] = 'Add stock';
         $data['items'] = $this->Model_items->get_all_array();
-        $data['colors'] = array('1' => 'azul', '2' => 'negro', '3' => 'celeste');
+        $data['colors'] = $this->Model_colors->get_all();
         $this->load->view('admin_layout', $data);
     }
 

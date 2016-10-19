@@ -16,7 +16,7 @@
     <tbody>
         <?php foreach ($items as $item): ?>
         <tr>
-            <td><?= $item->name; ?></td>
+            <td><?= $item->item; ?></td>
             <td><?= $item->season; ?></td>
             <td><?= $item->year; ?></td>
             <td><?= $item->color; ?></td>

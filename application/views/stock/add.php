@@ -16,8 +16,8 @@
             <div class="medium-6 columns">
                 <label>Colores
                 <select name="colors[]" multiple>
-                    <?php foreach ($colors as $key => $color): ?>
-                    <option value="<?= $key; ?>"><?= $color; ?></option>
+                    <?php foreach ($colors as $color): ?>
+                    <option value="<?= $color->id; ?>"><?= $color->name; ?></option>
                     <?php endforeach; ?>
                 </select>
                 </label>
