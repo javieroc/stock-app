@@ -1,6 +1,13 @@
-<h2>Stock de Artículos</h2>
+<h2 class="title-h2">Stock de Artículos</h2>
 
 <?= anchor('stock/add', ' Agregar Stock', array('class' => 'button fi-plus'));?>
+
+<div class="filters">
+    <div class="filter input-group">
+        <span class="input-group-label"><i class="fi-magnifying-glass"></i></span>
+        <input id="item-search" class="input-group-field" type="text" placeholder="Escriba el nombre de un artículo.">
+    </div>
+</div>
 
 <div class="table-scroll-index">
     <table class="hover stack">
@@ -14,7 +21,7 @@
                 <th> Cantidad </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="result">
             <?php foreach ($items as $item): ?>
             <tr>
                 <td><?= $item->item; ?></td>
@@ -28,3 +35,4 @@
         </tbody>
     </table>
 </div>
+<script src="<?= base_url('js/stock/stock.js'); ?>"></script>

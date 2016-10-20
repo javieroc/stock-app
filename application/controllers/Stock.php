@@ -70,4 +70,14 @@ class Stock extends CI_Controller {
         return $result;
     }
 
+    public function ajax_search(){
+        if($this->input->is_ajax_request()){
+            $item = $this->input->post('item');
+            $query = $this->Model_stock->search($item);
+            echo json_encode($query);
+        }else{
+            show_404();
+        }
+    }
+
 }
