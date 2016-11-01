@@ -58,19 +58,22 @@ class Model_stock extends CI_Model {
         foreach ($colors as $color_id) {
             $row = array();
             foreach ($quantities as $size_id => $quantity) {
-                $row['item_id'] = $item_id;
-                $row['color_id'] = $color_id;
-                $row['size_id'] = $size_id;
-                $row['quantity'] = $quantity;
-                $row['created'] = date('Y/m/d H:i:s');
-                $row['updated'] = date('Y/m/d H:i:s');
+                if (!empty($quantity)) {
+                    $row['item_id'] = $item_id;
+                    $row['color_id'] = $color_id;
+                    $row['size_id'] = $size_id;
+                    $row['quantity'] = $quantity;
+                    $row['created'] = date('Y/m/d H:i:s');
+                    $row['updated'] = date('Y/m/d H:i:s');
 
-                $query = $this->find($item_id, $color_id, $size_id);
-                if ($query->num_rows() == 1) {
-                    $this->update($row);
-                }
-                else {
-                    $this->insert($row);
+                    $query = $this->find($item_id, $color_id, $size_id);
+                    if ($query->num_rows() == 1) {
+                        $row['quantity'] += $query->row('quantity');
+                        $this->update($row);
+                    }
+                    else {
+                        $this->insert($row);
+                    }
                 }
             }
         }

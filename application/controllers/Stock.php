@@ -29,7 +29,7 @@ class Stock extends CI_Controller {
     public function validate() {
         $stock_data = $this->input->post();
 
-        $this->form_validation->set_rules('item_id', 'Item', 'required|callback_validate_colors|callback_validate_sizes');
+        $this->form_validation->set_rules('item_id', 'Item', 'required|callback_validate_colors');
 
         if ($this->form_validation->run() == FALSE) {
             $this->add();
